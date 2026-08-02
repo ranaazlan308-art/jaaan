@@ -1,41 +1,5 @@
-import streamlit as st
-import os
-from PIL import Image
 
-# 1. Page Configuration
-st.set_page_config(
-    page_title="3 Years & Forever ❤️",
-    page_icon="💖",
-    layout="centered"
-)
-
-# 2. Custom CSS Styling
-st.markdown("""
-    <style>
-    .main {
-        background-color: #FFF0F5;
-    }
-    h1 {
-        color: #D81B60;
-        text-align: center;
-        font-family: 'Georgia', serif;
-    }
-    p {
-        color: #4A4A4A;
-        font-size: 18px;
-        text-align: center;
-    }
-    </style>
-""", unsafe_allow_html=True)
-
-# 3. Main Title
-st.title("❤️ To My Future Wife ❤️")
-st.write("Hamare 3 saal ke is khoobsurat safar ke naam ek chota sa surprise...")
-
-st.markdown("---")
-
-# 4. Safe Image Loader
-script_dir = os.path.dirname(os.path.abspath(__file__))
+cscript_dir = os.path.dirname(os.path.abspath(__file__))
 image_path = os.path.join(script_dir, "our_pic.jpg") # Aapki image ka naam
 
 if os.path.exists(image_path):
