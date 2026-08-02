@@ -9,7 +9,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# 2. Custom Styling (CSS)
+# 2. Custom CSS Styling
 st.markdown("""
     <style>
     .main {
@@ -34,27 +34,30 @@ st.write("Hamare 3 saal ke is khoobsurat safar ke naam ek chota sa surprise...")
 
 st.markdown("---")
 
-# 4. Photo Section (Automatic File Path for GitHub)
-# 4. Photo Section (Safe Image Loading)
+# 4. Safe Image Loader (Prevents UnidentifiedImageError & Crashes)
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
-# Apni image ka exact naam aur extension likhein:
+# File ka naam exact GitHub wali file se match karein
 image_path = os.path.join(script_dir, "our_pic.jpeg") 
 
 if os.path.exists(image_path):
     try:
-        img = Image.open(image_path)
-        # Image convert kar rahe hain taake har kisam ka JPEG read ho sake
-        img = img.convert("RGB")
-        st.image(img, caption="3 Saal Ka Khoobsurat Safar & Hamesha Ka Saath 💕", use_container_width=True)
-    except Exception as e:
-        st.error("❌ Image open nahi ho rahi! File corrupt ho sakti hai ya format unsupported hai.")
-        st.info("💡 Solution: Image ko Paint me open karke dobara 'Save As JPEG' karein aur GitHub par upload karein.")
+        # PIL image load and safe RGB conversion
+        with Image.open(image_path) as raw_img:
+            img = raw_img.convert("RGB")
+            st.image(img, caption="3 Saal Ka Khoobsurat Safar & Hamesha Ka Saath 💕", use_container_width=True)
+    except Exception:
+        # Fallback if PIL fails: Display direct path
+        try:
+            st.image(image_path, caption="3 Saal Ka Khoobsurat Safar & Hamesha Ka Saath 💕", use_container_width=True)
+        except Exception:
+            st.warning("⚠️ Photo display karne me masla aa raha hai. File extension check karein.")
 else:
-    st.error(f"⚠️ Image file nahi mili! File name check karein. Path: {image_path}")
+    st.error("⚠️ Photo file nahi mili! File ka naam GitHub par 'our_pic.jpeg' hi rakhein.")
+
 st.markdown("---")
 
-# 5. 3-Year Relationship Journey Highlights
+# 5. Relationship Journey Highlights
 st.subheader("🌹 Hamare 3 Saal...")
 
 col1, col2 = st.columns(2)
@@ -69,7 +72,7 @@ with col2:
 
 st.markdown("---")
 
-# 6. Romantic Love Note Box
+# 6. Romantic Love Note
 st.markdown("""
 <div style="background-color: #ffe6e8; padding: 20px; border-radius: 15px; border: 2px solid #ff4d6d; text-align: center;">
     <h3 style="color: #c9184a;">💌 Ek Dil Se Paigham</h3>
@@ -84,7 +87,7 @@ st.markdown("""
 st.write("")
 st.write("")
 
-# 7. Interactive Magic Button
+# 7. Surprise Button
 st.subheader("👉 Neeche Diye Gaye Button Par Click Karein:")
 
 if st.button("💖 Click For Special Surprise! 💖"):
