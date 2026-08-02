@@ -33,7 +33,7 @@ st.write("Hamare 3 saal ke is khoobsurat safar ke naam ek chota sa surprise...")
 st.markdown("---")
 
 # 4. Direct Online Photo Loader
-IMAGE_URL = "https://i.ibb.co/prN12tqV/our-pi.jpg"
+IMAGE_URL = "https://i.ibb.co/L5kscS6/our-pi.jpg"
 
 try:
     st.image(
