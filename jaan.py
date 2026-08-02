@@ -35,16 +35,23 @@ st.write("Hamare 3 saal ke is khoobsurat safar ke naam ek chota sa surprise...")
 st.markdown("---")
 
 # 4. Photo Section (Automatic File Path for GitHub)
+# 4. Photo Section (Safe Image Loading)
 script_dir = os.path.dirname(os.path.abspath(__file__))
-# Agar aapki image ka naam alag hai to 'our_pic.jpeg' ki jagah wo naam likhein
+
+# Apni image ka exact naam aur extension likhein:
 image_path = os.path.join(script_dir, "our_pic.jpeg") 
 
 if os.path.exists(image_path):
-    img = Image.open(image_path)
-    st.image(img, caption="3 Saal Ka Khoobsurat Safar & Hamesha Ka Saath 💕", use_container_width=True)
+    try:
+        img = Image.open(image_path)
+        # Image convert kar rahe hain taake har kisam ka JPEG read ho sake
+        img = img.convert("RGB")
+        st.image(img, caption="3 Saal Ka Khoobsurat Safar & Hamesha Ka Saath 💕", use_container_width=True)
+    except Exception as e:
+        st.error("❌ Image open nahi ho rahi! File corrupt ho sakti hai ya format unsupported hai.")
+        st.info("💡 Solution: Image ko Paint me open karke dobara 'Save As JPEG' karein aur GitHub par upload karein.")
 else:
-    st.error("⚠️ Image file nahi mili! Baraye karam GitHub par photo ka naam aur extension check karein.")
-
+    st.error(f"⚠️ Image file nahi mili! File name check karein. Path: {image_path}")
 st.markdown("---")
 
 # 5. 3-Year Relationship Journey Highlights
