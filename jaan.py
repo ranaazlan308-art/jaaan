@@ -34,7 +34,7 @@ st.markdown("---")
 
 # 4. High-Quality Photo Section
 # Updated High-Resolution Link
-IMAGE_URL = "https://i.ibb.co/L5kscS6/our-pi.jpg"
+IMAGE_URL = "https://ibb.co/prN12tqV"
 
 try:
     st.image(
