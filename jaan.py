@@ -1,14 +1,15 @@
 import streamlit as st
+import os
 from PIL import Image
 
-# Page Configuration
+# 1. Page Configuration
 st.set_page_config(
     page_title="3 Years & Forever ❤️",
     page_icon="💖",
     layout="centered"
 )
 
-# Custom Styling
+# 2. Custom Styling (CSS)
 st.markdown("""
     <style>
     .main {
@@ -27,23 +28,26 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Title & Subtitle
-st.title("❤️ To My Wife ❤️")
+# 3. Main Title
+st.title("❤️ To My Future Wife ❤️")
 st.write("Hamare 3 saal ke is khoobsurat safar ke naam ek chota sa surprise...")
 
 st.markdown("---")
 
-# Photo Section
-# APNI PHOTO KA NAME YAHAN UPDATE KAREN (e.g., "our_pic.jpg")
-try:
-    image = Image.open("our_pic.jpeg")
-    st.image(image, caption="3 Saal Ka Khoobsurat Safar & Hamesha Ka Saath 💕", use_column_width=True)
-except FileNotFoundError:
-    st.info("📌 **Photo Add Karne Ka Tareeqa:** Jis folder me ye script hai, wahan apni picture rakhein aur code me 'our_pic.jpg' naam set kar dein.")
+# 4. Photo Section (Automatic File Path for GitHub)
+script_dir = os.path.dirname(os.path.abspath(__file__))
+# Agar aapki image ka naam alag hai to 'our_pic.jpeg' ki jagah wo naam likhein
+image_path = os.path.join(script_dir, "our_pic.jpeg") 
+
+if os.path.exists(image_path):
+    img = Image.open(image_path)
+    st.image(img, caption="3 Saal Ka Khoobsurat Safar & Hamesha Ka Saath 💕", use_container_width=True)
+else:
+    st.error("⚠️ Image file nahi mili! Baraye karam GitHub par photo ka naam aur extension check karein.")
 
 st.markdown("---")
 
-# 3 Years Journey Highlights
+# 5. 3-Year Relationship Journey Highlights
 st.subheader("🌹 Hamare 3 Saal...")
 
 col1, col2 = st.columns(2)
@@ -58,7 +62,7 @@ with col2:
 
 st.markdown("---")
 
-# Heartfelt Romantic Message Box
+# 6. Romantic Love Note Box
 st.markdown("""
 <div style="background-color: #ffe6e8; padding: 20px; border-radius: 15px; border: 2px solid #ff4d6d; text-align: center;">
     <h3 style="color: #c9184a;">💌 Ek Dil Se Paigham</h3>
@@ -73,11 +77,10 @@ st.markdown("""
 st.write("")
 st.write("")
 
-# Interactive Magic Surprise Button
-st.subheader("👉 Yahan Click Karein:")
+# 7. Interactive Magic Button
+st.subheader("👉 Neeche Diye Gaye Button Par Click Karein:")
 
 if st.button("💖 Click For Special Surprise! 💖"):
-    # Celebration Animation
     st.balloons()
     
     st.markdown("""
