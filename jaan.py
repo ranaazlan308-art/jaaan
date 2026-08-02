@@ -36,7 +36,7 @@ st.markdown("---")
 # Photo Section
 # APNI PHOTO KA NAME YAHAN UPDATE KAREN (e.g., "our_pic.jpg")
 try:
-    image = Image.open("our_pic.jpg")
+    image = Image.open("our_pic.jpeg")
     st.image(image, caption="3 Saal Ka Khoobsurat Safar & Hamesha Ka Saath 💕", use_column_width=True)
 except FileNotFoundError:
     st.info("📌 **Photo Add Karne Ka Tareeqa:** Jis folder me ye script hai, wahan apni picture rakhein aur code me 'our_pic.jpg' naam set kar dein.")
