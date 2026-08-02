@@ -189,7 +189,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # 3. Main Title Section
-st.markdown('<div class="main-title">❤️ To My Future Wife ❤️</div>', unsafe_allow_html=True)
+st.markdown('<div class="main-title">❤️ To my bacha giiii ❤️</div>', unsafe_allow_html=True)
 st.markdown('<div class="sub-title">Hamare 3 saal ke is khoobsurat safar ke naam ek chota sa surprise...</div>', unsafe_allow_html=True)
 
 st.markdown("<hr>", unsafe_allow_html=True)
