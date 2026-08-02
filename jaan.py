@@ -28,7 +28,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Title & Subtitle
-st.title("❤️ To My Future Wife ❤️")
+st.title("❤️ To My Wife ❤️")
 st.write("Hamare 3 saal ke is khoobsurat safar ke naam ek chota sa surprise...")
 
 st.markdown("---")
