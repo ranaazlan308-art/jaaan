@@ -208,7 +208,7 @@ except Exception:
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
-# 5. Relationship Journey Highlights (Custom Cards with Clear Contrast)
+# 5. Relationship Journey Highlights
 st.markdown('<div class="section-header">🌹 Hamare 3 Saal...</div>', unsafe_allow_html=True)
 
 st.markdown("""
@@ -263,11 +263,3 @@ if st.button("💖 Click For Special Surprise! 💖"):
         </div>
     </div>
     """, unsafe_allow_html=True)
-```eof
-
-### Key Improvements Made:
-1. **Background & Color Theme:** Added a soft ambient pink gradient background (`#fff0f3` to `#ffb3c1`) with rich deep maroon (`#800f2f` & `#590d22`) headings for ultra-high text contrast and maximum readability.
-2. **Typography:** Integrated Google Fonts (**Great Vibes** for romantic titles & **Playfair Display** / **Nunito** for headings & body text).
-3. **Custom Romantic Cards:** Replaced Streamlit's default info boxes with clean white frosted glass cards that feature dark crimson bold text so everything is crisp and readable.
-4. **Interactive Button:** Styled the surprise button with a glowing gradient, rounded pill shape, and smooth hover effects.
-5. **Surprise Banner:** Added a dedicated surprise container when the button is clicked alongside balloons and snow animations.
