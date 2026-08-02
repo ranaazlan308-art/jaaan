@@ -34,26 +34,19 @@ st.write("Hamare 3 saal ke is khoobsurat safar ke naam ek chota sa surprise...")
 
 st.markdown("---")
 
-# 4. Safe Image Loader (Prevents UnidentifiedImageError & Crashes)
+# 4. Safe Image Loader
 script_dir = os.path.dirname(os.path.abspath(__file__))
-
-# File ka naam exact GitHub wali file se match karein
-image_path = os.path.join(script_dir, "our_pic.jpeg") 
+image_path = os.path.join(script_dir, "our_pic.jpg") # Aapki image ka naam
 
 if os.path.exists(image_path):
     try:
-        # PIL image load and safe RGB conversion
         with Image.open(image_path) as raw_img:
             img = raw_img.convert("RGB")
             st.image(img, caption="3 Saal Ka Khoobsurat Safar & Hamesha Ka Saath 💕", use_container_width=True)
     except Exception:
-        # Fallback if PIL fails: Display direct path
-        try:
-            st.image(image_path, caption="3 Saal Ka Khoobsurat Safar & Hamesha Ka Saath 💕", use_container_width=True)
-        except Exception:
-            st.warning("⚠️ Photo display karne me masla aa raha hai. File extension check karein.")
+        st.image(image_path, caption="3 Saal Ka Khoobsurat Safar & Hamesha Ka Saath 💕", use_container_width=True)
 else:
-    st.error("⚠️ Photo file nahi mili! File ka naam GitHub par 'our_pic.jpeg' hi rakhein.")
+    st.error("⚠️ Photo nahi mili! Confirm karein ke 'our_pi.jpg' GitHub repository par 'jaan.py' ke bilkul sath upload hai.")
 
 st.markdown("---")
 
