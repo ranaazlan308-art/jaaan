@@ -1,16 +1,48 @@
+import streamlit as st
 
-cscript_dir = os.path.dirname(os.path.abspath(__file__))
-image_path = os.path.join(script_dir, "our_pic.jpg") # Aapki image ka naam
+# 1. Page Configuration
+st.set_page_config(
+    page_title="3 Years & Forever ❤️",
+    page_icon="💖",
+    layout="centered"
+)
 
-if os.path.exists(image_path):
-    try:
-        with Image.open(image_path) as raw_img:
-            img = raw_img.convert("RGB")
-            st.image(img, caption="3 Saal Ka Khoobsurat Safar & Hamesha Ka Saath 💕", use_container_width=True)
-    except Exception:
-        st.image(image_path, caption="3 Saal Ka Khoobsurat Safar & Hamesha Ka Saath 💕", use_container_width=True)
-else:
-    st.error("⚠️ Photo nahi mili! Confirm karein ke 'our_pi.jpg' GitHub repository par 'jaan.py' ke bilkul sath upload hai.")
+# 2. Custom CSS Styling
+st.markdown("""
+    <style>
+    .main {
+        background-color: #FFF0F5;
+    }
+    h1 {
+        color: #D81B60;
+        text-align: center;
+        font-family: 'Georgia', serif;
+    }
+    p {
+        color: #4A4A4A;
+        font-size: 18px;
+        text-align: center;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+# 3. Main Title
+st.title("❤️ To My Future Wife ❤️")
+st.write("Hamare 3 saal ke is khoobsurat safar ke naam ek chota sa surprise...")
+
+st.markdown("---")
+
+# 4. Direct Online Photo Loader
+IMAGE_URL = "https://i.ibb.co/prN12tqV/our-pi.jpg"
+
+try:
+    st.image(
+        IMAGE_URL, 
+        caption="3 Saal Ka Khoobsurat Safar & Hamesha Ka Saath 💕", 
+        use_container_width=True
+    )
+except Exception:
+    st.write("❤️ 3 Saal Ka Khoobsurat Safar ❤️")
 
 st.markdown("---")
 
